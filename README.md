@@ -18,18 +18,18 @@ For more information, read [Ocliff Docs](https://oclif.io/docs/introduction).
 ![npm](https://img.shields.io/npm/v/@vtex/cli-plugin-template)
 
 <!-- toc -->
-* [VTEX CLI Plugin Template](#vtex-cli-plugin-template)
+* [VTEX CLI Plugin Deploy](#vtex-cli-plugin-deploy)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @vtex/cli-plugin-template
+$ npm install -g @vtex/cli-plugin-deploy
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-template/0.0.0 linux-x64 node-v12.18.3
+@vtex/cli-plugin-deploy/0.0.0 linux-x64 node-v12.18.4
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -38,27 +38,26 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello [FILE]`](#oclif-example-hello-file)
+* [`oclif-example deploy [APPID]`](#oclif-example-deploy-appid)
 
-## `oclif-example hello [FILE]`
+## `oclif-example deploy [APPID]`
 
-describe the command here
+Deploy a release of an app
 
 ```
 USAGE
-  $ oclif-example hello [FILE]
+  $ oclif-example deploy [APPID]
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-  -v, --verbose    Show debug level logs
-  --trace          Ensure all requests to VTEX IO are traced
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  -y, --yes      Answer yes to confirmation prompts
+  --trace        Ensure all requests to VTEX IO are traced
 
-EXAMPLE
-  $ oclif-example hello
-  hello world from ./src/hello.ts!
+EXAMPLES
+  vtex deploy
+  vtex deploy vtex.service-example@0.0.1
 ```
 
-_See code: [build/commands/hello.ts](https://github.com/vtex/cli-plugin-template/blob/v0.0.0/build/commands/hello.ts)_
+_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.0.0/build/commands/deploy.ts)_
 <!-- commandsstop -->
