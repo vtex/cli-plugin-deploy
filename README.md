@@ -1,4 +1,4 @@
-# VTEX CLI Plugin Template
+# VTEX CLI Plugin Deploy
 
 Extend the `vtex` toolbelt!
 

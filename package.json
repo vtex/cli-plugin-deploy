@@ -1,11 +1,12 @@
 {
-  "name": "@vtex/cli-plugin-template",
-  "description": "vtex plugin template",
+  "name": "@vtex/cli-plugin-deploy",
+  "description": "vtex plugin deploy",
   "version": "0.0.0",
-  "bugs": "https://github.com/vtex/cli-plugin-template/issues",
+  "bugs": "https://github.com/vtex/cli-plugin-deploy/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "chalk": "^4.1.0",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -26,7 +27,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
     "typescript": "^3.8.2",
-    "vtex": "^2.105.1"
+    "vtex": "^2.112.0-beta.11"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -37,7 +38,7 @@
     "/oclif.manifest.json",
     "/yarn.lock"
   ],
-  "homepage": "https://github.com/vtex/cli-plugin-template",
+  "homepage": "https://github.com/vtex/cli-plugin-deploy",
   "keywords": [
     "oclif-plugin"
   ],
@@ -49,7 +50,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "vtex/cli-plugin-template",
+  "repository": "vtex/cli-plugin-deploy",
   "scripts": {
     "build-clean": "rm -rf build",
     "build-incremental": "tsc --incremental",
