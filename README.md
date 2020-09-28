@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-deploy
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-deploy/0.0.0 linux-x64 node-v12.18.4
+@vtex/cli-plugin-deploy/0.0.1-beta linux-x64 node-v12.18.4
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -59,5 +59,5 @@ EXAMPLES
   vtex deploy vtex.service-example@0.0.1
 ```
 
-_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.0.0/build/commands/deploy.ts)_
+_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.0.1-beta/build/commands/deploy.ts)_
 <!-- commandsstop -->
