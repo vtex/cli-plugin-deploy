@@ -1,4 +1,5 @@
 import chalk from 'chalk'
+import { Messages } from '../lib/constants/Messages'
 import {
   createRegistryClient,
   parseLocator,
@@ -45,18 +46,18 @@ const deployRelease = async (app: string): Promise<boolean> => {
 const prepareDeploy = async (app, originalAccount, originalWorkspace: string): Promise<void> => {
   app = ManifestValidator.validateApp(app)
   try {
-    logger.debug('Starting to deploy app:', app)
+    logger.debug(Messages.DEPLOY_START(app))
     const deployed = await deployRelease(app)
 
     if (deployed) {
-      logger.info('Successfully deployed', app)
+      logger.info(Messages.DEPLOY_SUCCESS(app))
     }
   } catch (e) {
     const data = e.response?.data
     const code = data?.code
 
     if (code === 'app_is_not_rc') {
-      logger.error(`App ${app} was already deployed.`)
+      logger.error(Messages.DEPLOY_ALREADY_ERROR(app))
     } else if (data?.message) {
       logger.error(data.message)
     } else {
