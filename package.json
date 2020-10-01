@@ -45,7 +45,7 @@
   "license": "MIT",
   "oclif": {
     "commands": "./build/commands",
-    "bin": "oclif-example",
+    "bin": "vtex",
     "devPlugins": [
       "@oclif/plugin-help"
     ]
