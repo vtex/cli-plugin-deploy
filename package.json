@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-deploy",
   "description": "vtex plugin deploy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "bugs": "https://github.com/vtex/cli-plugin-deploy/issues",
   "dependencies": {
     "@oclif/command": "^1",
