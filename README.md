@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-deploy
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-deploy/0.1.0 linux-x64 node-v12.18.4
+@vtex/cli-plugin-deploy/0.1.1 linux-x64 node-v12.18.4
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
@@ -59,5 +59,5 @@ EXAMPLES
   vtex deploy vtex.service-example@0.0.1
 ```
 
-_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.1.0/build/commands/deploy.ts)_
+_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.1.1/build/commands/deploy.ts)_
 <!-- commandsstop -->
