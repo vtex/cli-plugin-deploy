@@ -1199,10 +1199,10 @@
     numbro "2.1.0"
     tslib "^1"
 
-"@vtex/cli-plugin-autoupdate@^1.0.0-beta.0":
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-autoupdate/-/cli-plugin-autoupdate-1.0.0-beta.0.tgz#d1f86dff03af4e19f75efa3af6b0ede4334c5d16"
-  integrity sha512-Rz5OoaAwKB5PVbst30FVjoYjVDX8lVXd0lDN2MKoQe+dIj3Wdkj0AOdIsYTjsFQCLa3+AIRCf3juSQkb1kf3Gw==
+"@vtex/cli-plugin-autoupdate@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-autoupdate/-/cli-plugin-autoupdate-0.0.1.tgz#1f296f2a1e8589df480be5abe3bec1831faee0db"
+  integrity sha512-bwSlCJCxtvRf7deOt116v4QKq8VdMDp+vIhVIXV9Hm+KbV/XB/6b9I5MR+IaZRqpGsNc6WeG7w+WyVIgI9v1qg==
   dependencies:
     "@oclif/color" "^0.1.0"
     "@oclif/command" "^1.7.0"
@@ -1219,6 +1219,16 @@
     log-chopper "^1.0.2"
     semver "^7.3.2"
     tar-fs "^2.1.0"
+
+"@vtex/cli-plugin-deploy@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-deploy/-/cli-plugin-deploy-0.1.0.tgz#feb171f9ab5fe6dbd3cd9294ad674c592a20e037"
+  integrity sha512-tqDC6l5RQSm/j6eisHPWczk/PReyFkUXcSH9LgzLmRYqv0WZ+QVlFyy7qkjgBdghBOYVSxgnhyG9kL+CSW8sjA==
+  dependencies:
+    "@oclif/command" "^1"
+    "@oclif/config" "^1"
+    chalk "^4.1.0"
+    tslib "^1"
 
 "@vtex/cli-plugin-deps@^0.0.1":
   version "0.0.1"
@@ -1242,10 +1252,10 @@
     "@tiagonapoli/oclif-plugin-spaced-commands" "^0.0.6"
     tslib "^1"
 
-"@vtex/cli-plugin-infra@^0.0.1-beta":
-  version "0.0.1-beta"
-  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-infra/-/cli-plugin-infra-0.0.1-beta.tgz#c67308f879eb943d9d813f008f977e400bfecca4"
-  integrity sha512-UPl4IypHOMT+jt7XQpIZsdz9yimfoGUnrJSPHcfpMPr709ogRYFoG+IWmUu9UvSEhzaUudRB7ubmIQP7uI9Kgg==
+"@vtex/cli-plugin-infra@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@vtex/cli-plugin-infra/-/cli-plugin-infra-0.1.0.tgz#fd3894dab13962921da280228bb998f0851a695c"
+  integrity sha512-v3Xig7iOzKgjaV3xZZ3NRiAX78Y9iHLAUU8wSyqIaYKOEGd8kzEh7zT09gYW1MLD++CAFkJMFc0DBYCT9zmBfA==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"
@@ -8984,10 +8994,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vtex@^2.112.0-beta.11:
-  version "2.112.0-beta.11"
-  resolved "https://registry.yarnpkg.com/vtex/-/vtex-2.112.0-beta.11.tgz#2db5bf79967ffa0cb1ad369c7bf811d4b56cee6f"
-  integrity sha512-ED2nD7TvOpeAIkStDyZCM6cSkKKQLZtVkVdoX4mAYz4jTXpN61e1UGHDyVU4xG97lGqgEqDRmdQElHyv4Z8uNw==
+vtex@^2.114.0-beta:
+  version "2.114.0-beta"
+  resolved "https://registry.yarnpkg.com/vtex/-/vtex-2.114.0-beta.tgz#8e3c03eb593afd876592575452917d2e58e49345"
+  integrity sha512-8Hd2rKg3fav4Z7JlcFU6A3ep507iI+20ezYOg6xT4h9VzL8su5WrcOT84I0hM91CTj1sxtvKwhY+Rc6Is1z/iw==
   dependencies:
     "@oclif/command" "^1.0.0"
     "@oclif/config" "^1.0.0"
@@ -8995,10 +9005,11 @@ vtex@^2.112.0-beta.11:
     "@tiagonapoli/oclif-plugin-spaced-commands" "^0.0.6"
     "@vtex/api" "3.71.1"
     "@vtex/cli-plugin-abtest" "^0.0.5"
-    "@vtex/cli-plugin-autoupdate" "^1.0.0-beta.0"
+    "@vtex/cli-plugin-autoupdate" "^0.0.1"
+    "@vtex/cli-plugin-deploy" "^0.1.0"
     "@vtex/cli-plugin-deps" "^0.0.1"
     "@vtex/cli-plugin-edition" "^0.0.1"
-    "@vtex/cli-plugin-infra" "^0.0.1-beta"
+    "@vtex/cli-plugin-infra" "^0.1.0"
     "@vtex/cli-plugin-lighthouse" "^0.0.3"
     "@vtex/cli-plugin-redirects" "^0.0.2"
     "@vtex/cli-plugin-submit" "^0.1.0"
