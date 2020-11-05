@@ -20,6 +20,14 @@ const switchToVendorMessage = (vendor: string): string => {
 
 const promptDeploy = (app: string) => promptConfirm(`Are you sure you want to deploy app ${app}`)
 
+const execRelease = async (appData: any, token: string, force: boolean) => {
+  const context = { account: appData.vendor, workspace: 'master', authToken: token }
+  const registry = createRegistryClient(context)
+  const path = `${appData.vendor}.${appData.name}?ignoreWaitPeriod=${force}`
+
+  await registry.validateApp(path, appData.version)
+}
+
 const deployRelease = async (app: string, force: boolean): Promise<boolean> => {
   const { vendor, name, version } = parseLocator(app)
   const session = SessionManager.getSingleton()
@@ -34,11 +42,7 @@ const deployRelease = async (app: string, force: boolean): Promise<boolean> => {
     await switchAccount(vendor, {})
   }
 
-  const context = { account: vendor, workspace: 'master', authToken: session.token }
-  const registry = createRegistryClient(context)
-  const path = `${vendor}.${name}?ignoreWaitPeriod=${force}`
-
-  await registry.validateApp(path, version)
+  await execRelease({ vendor, name, version }, session.token, force)
 
   return true
 }
@@ -73,7 +77,7 @@ const prepareDeploy = async (app, originalAccount, originalWorkspace: string, fo
 // @ts-ignore
 export default async (optionalApp: string, options) => {
   const preConfirm = options.y || options.yes
-  const force = options.f || options.force
+  const force = options.f || options.force || false
 
   const { account: originalAccount, workspace: originalWorkspace } = SessionManager.getSingleton()
   const app = optionalApp || (await ManifestEditor.getManifestEditor()).appLocator
