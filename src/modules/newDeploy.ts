@@ -12,6 +12,12 @@ import {
   switchAccount,
 } from 'vtex'
 
+interface AppData {
+  vendor: string
+  name: string
+  version: string
+}
+
 const switchToVendorMessage = (vendor: string): string => {
   return `You are trying to deploy this app in an account that differs from the indicated vendor. Do you want to deploy in account ${chalk.blue(
     vendor
@@ -20,29 +26,30 @@ const switchToVendorMessage = (vendor: string): string => {
 
 const promptDeploy = (app: string) => promptConfirm(`Are you sure you want to deploy app ${app}`)
 
-const execRelease = async (appData: any, token: string, force: boolean) => {
-  const context = { account: appData.vendor, workspace: 'master', authToken: token }
+const execRelease = async (appInfo: AppData, sessionToken: string, force: boolean) => {
+  const context = { account: appInfo.vendor, workspace: 'master', authToken: sessionToken }
   const registry = createRegistryClient(context)
-  const path = `${appData.vendor}.${appData.name}?ignoreWaitPeriod=${force}`
+  const path = `${appInfo.vendor}.${appInfo.name}?ignoreWaitPeriod=${force}`
 
-  await registry.validateApp(path, appData.version)
+  await registry.validateApp(path, appInfo.version)
 }
 
 const deployRelease = async (app: string, force: boolean): Promise<boolean> => {
   const { vendor, name, version } = parseLocator(app)
+  const appInfo: AppData = { vendor, name, version }
   const session = SessionManager.getSingleton()
 
-  if (vendor !== session.account) {
-    const canSwitchToVendor = await promptConfirm(switchToVendorMessage(vendor))
+  if (appInfo.vendor !== session.account) {
+    const canSwitchToVendor = await promptConfirm(switchToVendorMessage(appInfo.vendor))
 
     if (!canSwitchToVendor) {
       return false
     }
 
-    await switchAccount(vendor, {})
+    await switchAccount(appInfo.vendor, {})
   }
 
-  await execRelease({ vendor, name, version }, session.token, force)
+  await execRelease(appInfo, session.token, force)
 
   return true
 }
