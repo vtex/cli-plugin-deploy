@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-deploy
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-deploy/0.1.1 linux-x64 node-v12.18.4
+@vtex/cli-plugin-deploy/0.1.1 linux-x64 node-v12.19.0
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
@@ -49,6 +49,7 @@ USAGE
   $ vtex deploy [APPID]
 
 OPTIONS
+  -f, --force    Force deploy
   -h, --help     show CLI help
   -v, --verbose  Show debug level logs
   -y, --yes      Answer yes to confirmation prompts
