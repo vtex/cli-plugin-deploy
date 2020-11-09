@@ -13,7 +13,7 @@ export default class Deploy extends CustomCommand {
   static flags = {
     ...CustomCommand.globalFlags,
     yes: oclifFlags.boolean({ char: 'y', description: 'Answer yes to confirmation prompts' }),
-    force: oclifFlags.boolean({ char: 'f', description: 'Force deploy' }),
+    force: oclifFlags.boolean({ char: 'f', description: 'Ignore 7 minutes delay after Publish' }),
   }
 
   static args = [{ name: 'appId' }]
