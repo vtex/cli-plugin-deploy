@@ -12,6 +12,8 @@ import {
   switchAccount,
 } from 'vtex'
 
+import { QueryStringInfo } from '@vtex/api'
+
 interface AppData {
   vendor: string
   name: string
@@ -25,13 +27,19 @@ const switchToVendorMessage = (vendor: string): string => {
 }
 
 const promptDeploy = (app: string) => promptConfirm(`Are you sure you want to deploy app ${app}`)
+const promptDeployForce = () =>
+  promptConfirm(`Are you sure you want to ignore the minimum testing period of 7 minutes after publish?`)
 
 const execRelease = async (appInfo: AppData, sessionToken: string, force: boolean) => {
   const context = { account: appInfo.vendor, workspace: 'master', authToken: sessionToken }
   const registry = createRegistryClient(context)
-  const path = `${appInfo.vendor}.${appInfo.name}?ignoreWaitPeriod=${force}`
+  const path = `${appInfo.vendor}.${appInfo.name}`
+  const appQueryString: QueryStringInfo = {
+    name: 'ignoreWaitPeriod',
+    value: force,
+  }
 
-  await registry.validateApp(path, appInfo.version)
+  await registry.validateApp(path, appInfo.version, appQueryString)
 }
 
 const deployRelease = async (app: string, force: boolean): Promise<boolean> => {
@@ -90,6 +98,10 @@ export default async (optionalApp: string, options) => {
   const app = optionalApp || (await ManifestEditor.getManifestEditor()).appLocator
 
   if (!preConfirm && !(await promptDeploy(app))) {
+    return
+  }
+
+  if (force && !(await promptDeployForce())) {
     return
   }
 
