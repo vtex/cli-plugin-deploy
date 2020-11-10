@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-deploy",
   "description": "vtex plugin deploy",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "bugs": "https://github.com/vtex/cli-plugin-deploy/issues",
   "dependencies": {
     "@oclif/command": "^1",
@@ -27,7 +27,7 @@
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
     "typescript": "^3.8.2",
-    "vtex": "^2.114.0-beta"
+    "vtex": "^2.118.0-beta.1"
   },
   "engines": {
     "node": ">=8.0.0"
