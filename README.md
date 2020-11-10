@@ -49,7 +49,7 @@ USAGE
   $ vtex deploy [APPID]
 
 OPTIONS
-  -f, --force    Force deploy
+  -f, --force    Ignore 7 minutes delay after Publish
   -h, --help     show CLI help
   -v, --verbose  Show debug level logs
   -y, --yes      Answer yes to confirmation prompts
