@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- [Messages] Improve UX
+
 ## [0.2.0] - 2020-11-10
 ### Changed
 - [force] Enable `--force` flag to ignore 7 minutes wait time
