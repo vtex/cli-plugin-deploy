@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-deploy
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-deploy/0.2.0 linux-x64 node-v12.19.0
+@vtex/cli-plugin-deploy/0.3.0 linux-x64 node-v12.21.0
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
@@ -42,17 +42,20 @@ USAGE
 
 ## `vtex deploy [APPID]`
 
-Deploy a release of an app
+Publishes an app as a stable version. Only works for apps previously published as a release candidate [see vtex publish --help].
 
 ```
 USAGE
   $ vtex deploy [APPID]
 
+ARGUMENTS
+  APPID  Name and version of the app ({vendor}.{appname}@{x.x.x}) you want to deploy.
+
 OPTIONS
-  -f, --force    Ignore 7 minutes delay after Publish
+  -f, --force    Ignores the testing period of 7 minutes after publishing an app. (Use with caution.)
   -h, --help     show CLI help
   -v, --verbose  Show debug level logs
-  -y, --yes      Answer yes to confirmation prompts
+  -y, --yes      Answers yes to all prompts.
   --trace        Ensure all requests to VTEX IO are traced
 
 EXAMPLES
@@ -60,5 +63,5 @@ EXAMPLES
   vtex deploy vtex.service-example@0.0.1
 ```
 
-_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.2.0/build/commands/deploy.ts)_
+_See code: [build/commands/deploy.ts](https://github.com/vtex/cli-plugin-deploy/blob/v0.3.0/build/commands/deploy.ts)_
 <!-- commandsstop -->
