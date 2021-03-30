@@ -42,7 +42,7 @@ USAGE
 
 ## `vtex deploy [APPID]`
 
-Publishes an app as a stable version. Only works for apps previously published as a release candidate [see vtex publish --help].
+Publishes an app as a stable version. Only works for apps previously published as a release candidate [see [38;5;205mvtex publish --help].
 
 ```
 USAGE
