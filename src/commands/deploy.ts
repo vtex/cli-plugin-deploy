@@ -19,6 +19,10 @@ export default class Deploy extends CustomCommand {
 
   static flags = {
     ...CustomCommand.globalFlags,
+    pipeline: oclifFlags.boolean({
+      char: 'p',
+      description: 'Deploys the app in pipeline mode.',
+    }),
     yes: oclifFlags.boolean({ char: 'y', description: 'Answers yes to all prompts.' }),
     force: oclifFlags.boolean({
       char: 'f',
@@ -44,17 +48,17 @@ export default class Deploy extends CustomCommand {
     if (featureFlags.FEATURE_FLAG_DEPLOY_PLUGIN) {
       const {
         args: { appId },
-        flags: { yes, force },
+        flags: { yes, force, pipeline },
       } = this.parse(Deploy)
 
-      await newAppsDeploy(appId, { yes, force })
+      await newAppsDeploy(appId, { yes, force }, pipeline)
     } else {
       const {
         args: { appId },
-        flags: { yes },
+        flags: { yes, pipeline },
       } = this.parse(Deploy)
 
-      await oldAppsDeploy(appId, { yes })
+      await oldAppsDeploy(appId, { yes }, pipeline)
     }
   }
 }

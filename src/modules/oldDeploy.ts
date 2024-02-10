@@ -70,14 +70,18 @@ const prepareDeploy = async (app, originalAccount, originalWorkspace: string): P
 }
 
 // @ts-ignore
-export default async (optionalApp: string, options) => {
+export default async (optionalApp: string, options, pipeline) => {
   const preConfirm = options.y || options.yes
 
   const { account: originalAccount, workspace: originalWorkspace } = SessionManager.getSingleton()
   const app = optionalApp || (await ManifestEditor.getManifestEditor()).appLocator
 
-  if (!preConfirm && !(await promptDeploy(app))) {
+  if (!pipeline && !preConfirm && !(await promptDeploy(app))) {
     return
+  }
+
+  if (pipeline) {
+    logger.info('Deploying app in pipeline mode')
   }
 
   logger.debug(`Deploying app ${app}`)
