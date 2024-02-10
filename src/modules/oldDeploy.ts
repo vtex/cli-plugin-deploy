@@ -80,7 +80,9 @@ export default async (optionalApp: string, options, pipeline) => {
     return
   }
 
-  logger.info('Deploying app in pipeline mode')
+  if (pipeline) {
+    logger.info('Deploying app in pipeline mode')
+  }
 
   logger.debug(`Deploying app ${app}`)
 
