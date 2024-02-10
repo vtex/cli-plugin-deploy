@@ -27,6 +27,7 @@ const switchToVendorMessage = (vendor: string): string => {
 }
 
 const promptDeploy = (app: string) => promptConfirm(`Are you sure you want to deploy app ${app}`)
+
 const promptDeployForce = () =>
   promptConfirm(`Are you sure you want to ignore the minimum testing period of 7 minutes after publish?`)
 
@@ -90,18 +91,22 @@ const prepareDeploy = async (app, originalAccount, originalWorkspace: string, fo
 }
 
 // @ts-ignore
-export default async (optionalApp: string, options) => {
+export default async (optionalApp: string, options, pipeline: boolean) => {
   const preConfirm = options.y || options.yes
   const force = options.f || options.force || false
 
   const { account: originalAccount, workspace: originalWorkspace } = SessionManager.getSingleton()
   const app = optionalApp || (await ManifestEditor.getManifestEditor()).appLocator
 
-  if (!preConfirm && !(await promptDeploy(app))) {
+  if (!pipeline && !preConfirm && !(await promptDeploy(app))) {
     return
   }
 
-  if (force && !(await promptDeployForce())) {
+  if (pipeline) {
+    logger.info(`Deploying app ${app} in pipeline mode`)
+  }
+
+  if (!pipeline && force && !(await promptDeployForce())) {
     return
   }
 
